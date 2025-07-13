@@ -16,7 +16,7 @@ zonghe项目作业
 **技术栈 & 核心库**
 
 - **开发语言**: Java
-- **IDE**: Android Studio Dolphin
+- **IDE**: Android Studio Dolphin2021.3.1
 - **数据库**: SQLite
 - **网络请求**: OkHttp
 - **AI 服务**: 阿里云通义千问 (DashScope - `qwen-plus`)
