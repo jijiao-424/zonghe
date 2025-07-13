@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 使用 CoordinatorLayout 作为根布局，这是 FloatingActionButton 的最佳搭档 -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f3f3f3"
+    tools:context=".MainActivity">
+
+    <!-- 为了让 ListView 和 TopBar 保持原来的层级，我们用一个 RelativeLayout 包裹它们 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/mian_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/blue_1A5599">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="记账本"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/mian_iv_box"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:onClick="onClick"
+                android:padding="10dp"
+                android:src="@mipmap/box" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/main_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/mian_top_layout"
+            android:background="@color/grey_f3f3f3"
+            android:divider="@null"
+            android:dividerHeight="6dp"
+            android:padding="10dp"
+            android:scrollbars="none" />
+
+        <ImageButton
+            android:id="@+id/main_bt_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/main_morebtn_bt"
+            android:onClick="onClick"
+            android:src="@mipmap/more0"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/main_btn_edit"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/main_bt_more"
+            android:layout_toLeftOf="@+id/main_bt_more"
+            android:background="@drawable/main_recordbtn_bt"
+            android:drawableLeft="@mipmap/pen"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:text=" 记一笔"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <!-- 【这里是全新的、高清的、位于左下角的AI悬浮按钮】 -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_fab_ai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="AI助手"
+        app:srcCompat="@mipmap/ic_ai" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

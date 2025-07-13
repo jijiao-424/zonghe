@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AIActivity">
+
+    <!-- 使用 TextInputLayout 优化输入体验，提供浮动标签和更好的视觉效果 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/question_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="向AI提问，分析您的账单"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:lines="3"
+            android:text="今天哪一项花得最多？" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 提问按钮 -->
+    <Button
+        android:id="@+id/btn_ask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="发送给AI" />
+
+    <!-- AI 回答的区域，用 CardView 包裹增加层次感 -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="#F5F5F5"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp">
+
+        <!-- 使用 FrameLayout 可以在同一区域显示加载动画和结果文本 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 加载指示器，默认隐藏 -->
+            <ProgressBar
+                android:id="@+id/pb_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <!-- 使用 ScrollView 包裹 TextView，以便在答案很长时可以滚动 -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="AI 的回答会显示在这里"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </ScrollView>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
