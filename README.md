@@ -21,3 +21,5 @@ zonghe项目作业
 - **网络请求**: OkHttp
 - **AI 服务**: 阿里云通义千问 (DashScope - `qwen-plus`)
 - **UI 组件**: AndroidX, Material Design Components
+
+**若需使用AI功能，须更改URL以及model，同时将API Key存储在项目根目录的local.properties文件中，并通过buildConfigField注入到BuildConfig，同时确保.gitignore文件忽略local.properties以防泄露。**
